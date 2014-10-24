@@ -16,6 +16,8 @@ The header lists:
 * name of column to be updated: the column which contains the value to be updated
 * name of column to be updated: (copy of previous)
 
+NOTE: The column names indicated in the second and third positions of the header should be the same. This corresponds to the data in the body below those header items: the second item in each row of the body contains the "old" value to be replaced, and the third item in each row contains the "new" value. This is an intentional piece of security, to be sure the change is intended.
+
 The body lists:
 * unique value used to identify the record to update
 * the original value, which will be replaced
