@@ -1,9 +1,7 @@
 import csv, sys
 
-# process the arguments
-print 'processing the arguments'
-
 def escape(string):
+    """Escape all single-quotes with a single-quote (postgres escape character)"""
     newString = []
     for character in string:
         if character == '\'':
@@ -12,13 +10,17 @@ def escape(string):
             newCharacter = character
         newString.append(newCharacter)
     return ''.join(newString)
-    
+
+# process the arguments
 if len(sys.argv) != 3:
+    print 'exiting: incorrect arguments'
     sys.exit()
 else:
     fileName = sys.argv[1]
     tableName = sys.argv[2]
 
+# read csv
+print 'reading', fileName
 with open(fileName, 'rb') as theFile:
     theReader = csv.reader(theFile, delimiter=',')
     rownum = 0
@@ -37,6 +39,9 @@ with open(fileName, 'rb') as theFile:
             print thisOutput
         rownum += 1
 
-with open(fileName[:-4] + '_output.sql', 'w') as outputFile:
+# write ouput
+outFileName = fileName[:-4] + '_output.sql'
+with open(outFileName, 'w') as outputFile:
     for item in theOutput:
         outputFile.write(item)
+print 'saved output to', outFileName
