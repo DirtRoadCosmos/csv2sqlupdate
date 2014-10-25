@@ -57,8 +57,3 @@ UPDATE towns_hist SET townname = 'Avery''s Gore' WHERE geoid = '5000902162' AND 
 UPDATE towns_hist SET townname = 'Barre Town' WHERE geoid = '5002303250' AND townname = 'Barre';
 UPDATE towns_hist SET townname = 'Barre City' WHERE geoid = '5002303175' AND townname = 'Barre';
 ```
-
-
-
-output
-====
